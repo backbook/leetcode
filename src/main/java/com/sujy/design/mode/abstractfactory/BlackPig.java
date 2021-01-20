@@ -1,4 +1,4 @@
-package com.akulaku.design.mode.abstractfactory;
+package com.sujy.design.mode.abstractfactory;
 
 public class BlackPig implements Pig{
     @Override
