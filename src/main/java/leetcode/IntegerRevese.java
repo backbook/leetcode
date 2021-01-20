@@ -35,9 +35,8 @@ public class IntegerRevese {
 
     @Test
     public void revese() {
-        int reverse = reverseWithZeros(-2147483647);
+        int reverse = reverseWithZeros(-2147483642);
         System.out.println(reverse);
-        System.out.println(-10231 % 10);
     }
 
 }
