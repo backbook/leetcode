@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.lang.String.format;
 
@@ -36,6 +37,13 @@ public class LambdaTest {
         return "UPDATE " + quoteIdentifier(tableName) +
                 " SET " + setClause +
                 " WHERE " + conditionClause;
+    }
+
+
+    @Test
+    public void Test01(){
+        Stream.iterate(0,t -> t+5).skip(5).limit(5).forEach(System.out::println);
+
     }
 
 
