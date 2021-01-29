@@ -1,0 +1,92 @@
+package internal;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GenericityDemo<T> {
+
+    String namespace;
+    //泛型数组
+    T[] e = (T[])new Object[10];
+
+    String name;
+
+    T Hours;
+
+    public T returenHours(T t) {
+        return t;
+    }
+
+    //
+    public List<T> copy1(T[] e){
+        ArrayList<T> list = new ArrayList<>();
+        for (T e1 : e){
+            list.add(e1);
+        }
+        return list;
+    }
+
+    public static <E> List<E> copy(E[] e){
+        ArrayList<E> list = new ArrayList<>();
+        for (E e1 : e){
+            list.add(e1);
+        }
+        return list;
+    }
+
+    public static void main(String[] args) {
+
+        //泛型定义后，如果不使用指明类的泛型
+        GenericityDemo<Person> objectgenericityDemo = new GenericityDemo<>();
+        Person person = objectgenericityDemo.returenHours(new Person());
+        System.out.println(person);
+        GenericityDemo2 genericityDemo2 = new GenericityDemo2();
+        genericityDemo2.returenHours("1231");
+
+        GenericityDemo3 genericityDemo3 = new GenericityDemo3();
+        genericityDemo3.returenHours(10);
+//        genericityDemo3.returenHours("adaf");  //Integer
+        GenericityDemo4<Integer> genericityDemo4 = new GenericityDemo4();
+        genericityDemo4.returenHours(123);
+
+
+        List<Integer> arrayList = new ArrayList<>();
+        List<String> arrayList2 = new ArrayList<>();
+        System.out.println(arrayList.getClass() == arrayList2.getClass());
+
+        //注意点，异常类不能是泛型
+
+
+        Integer[] integer = new Integer[]{1,2,3,4,5,6};
+        List<Integer> copy = GenericityDemo.copy(integer);
+        System.out.println(copy);
+
+    }
+
+}
+
+
+
+//子对象继承泛型基类，不指定会自动格式化成Object
+class GenericityDemo2 extends GenericityDemo{
+
+
+}
+//子对象继承泛型基类，继承中指定类型，只能操作这个类型
+class GenericityDemo3 extends GenericityDemo<Integer>{
+
+
+
+}
+//子对象继承泛型基类，继承中再指定泛型，则可以在子类中继续使用泛型
+class GenericityDemo4<T> extends GenericityDemo<T>{
+
+
+}
+
+class Person{
+    @Override
+    public String toString() {
+        return "this is person";
+    }
+}

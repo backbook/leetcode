@@ -2,10 +2,7 @@ package DataStructure.Map;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class MapTest {
 
@@ -27,6 +24,26 @@ public class MapTest {
         list.forEach(System.out::println
         );
 
+        Map<String,Integer> map = new HashMap<>();
+
+        map.put("ser",1);
+        map.put("af24",1231);
+        map.put("aq",1231);
+
+        Set<Map.Entry<String, Integer>> entries = map.entrySet();
+        Iterator<Map.Entry<String, Integer>> iterator = entries.iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String, Integer> next = iterator.next();
+            System.out.println(next.getKey());
+            System.out.println(next.getValue());
+        }
+        for (Iterator<Map.Entry<String, Integer>> it = entries.iterator(); it.hasNext();) {
+            Map.Entry<String, Integer> next = it.next();
+            System.out.println(next.getKey());
+            System.out.println(next.getValue());
+
+
+        }
 
     }
 
