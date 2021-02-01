@@ -1,6 +1,7 @@
 package internal;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GenericityDemo<T> {
@@ -90,3 +91,21 @@ class Person{
         return "this is person";
     }
 }
+
+
+class GenericityTest{
+
+    public static void main(String[] args) {
+        List<Object> list = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        List<String> list3 = new LinkedList<>();
+        //反证法求证，此数据是不能通过编译的
+//        list = list2;
+        //底层在实现逻辑上，是一致的，导致在编译的时候，代码是通过的
+        boolean isLike = list.getClass() == list2.getClass();
+        System.out.println(isLike);
+
+    }
+
+}
+
