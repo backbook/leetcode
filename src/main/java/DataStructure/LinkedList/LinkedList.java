@@ -1,6 +1,9 @@
 package DataStructure.LinkedList;
 
-
+/**
+ * 链表操作
+ * @param <Data>
+ */
 public class LinkedList<Data> {
 
     private class Node<Data>{
@@ -30,20 +33,33 @@ public class LinkedList<Data> {
         return temp;
     }
 
+    private void addLast(Data data){
+        Node insertNode = new Node(data);
+        if (size == 0){
+            head = insertNode;
+            last = insertNode;
+        } else {
+            last.next = insertNode;
+            last = insertNode;
+        }
+        size ++;
+    }
+
     private void insert(Data data,int index){
         if (index < 0 || index > size){
             throw new IndexOutOfBoundsException("超出链表节点范围");
         }
         Node insertNode = new Node(data);
+        //前两个方法是用来进行插入操作
         if (size == 0){
             head = insertNode;
             last = insertNode;
-        }else if (index == 0){
-            insertNode.next = head;
-            head = insertNode;
         }else if(index == size) {
             last.next = insertNode;
             last = insertNode;
+        } else if(index == 0){
+            insertNode.next = head;
+            head = insertNode;
         }else {
             Node prevNode = get(index - 1) ;
             insertNode.next = prevNode.next;
@@ -68,9 +84,10 @@ public class LinkedList<Data> {
 
     public static void main(String[] args) {
         LinkedList<Integer>  linkedList = new LinkedList();
-        linkedList.insert(10,0);
-        linkedList.insert(2,1);
-        linkedList.insert(5,2);
+        linkedList.addLast(313);
+        linkedList.addLast(3131);
+        linkedList.addLast(3131311);
+        linkedList.addLast(4111);
         linkedList.print();
     }
 

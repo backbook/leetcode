@@ -92,6 +92,13 @@ class Person{
     }
 }
 
+class Student extends Person{
+    @Override
+    public String toString() {
+        return "this is student";
+    }
+}
+
 
 class GenericityTest{
 
@@ -104,6 +111,37 @@ class GenericityTest{
         //底层在实现逻辑上，是一致的，导致在编译的时候，代码是通过的
         boolean isLike = list.getClass() == list2.getClass();
         System.out.println(isLike);
+
+        List<Student> list4 = new ArrayList<>();
+        list4.add(new Student());
+        List<Person> list5 = new ArrayList<>();
+        list5.add(new Person());
+        List<Object> list6 = new ArrayList<>();
+
+        List<? extends Person> lists = null;
+//        lists.add(new Student())
+        List<? super Person> listp = null;
+
+
+
+        lists = list4;
+        lists = list5;
+//        lists = list6;
+//        lists.add(new Student()); //协变范围变化，在编译器转化的时候，不知道给定什么类型，jdk 1.5中形参和返回类型必须一致
+//        lists.add(new Object());
+
+//        listp = list4;
+        listp = list5;
+        listp = list6;
+        listp.add(new Student());
+        listp.add(new Person());
+//        listp.add(new Object());//逆变导致范围更变
+
+        listp.add(new Student());
+
+
+        System.out.println(lists.get(0));
+
 
     }
 
