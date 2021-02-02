@@ -67,6 +67,8 @@ public class LinkedList<Data> {
         }
         size ++;
     }
+
+
     public void  print(){
         Node temp = head;
         while (temp != null){
