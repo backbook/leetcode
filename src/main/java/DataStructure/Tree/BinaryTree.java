@@ -76,8 +76,21 @@ public class BinaryTree<Data> {
                 queue.add(node.rightChildTree);
             }
         }
-
     }
+
+    public TreeNode<Data> inverseTreee(TreeNode<Data> node){
+        if (node == null){
+            return null;
+        }
+        TreeNode<Data> tmp =null;
+        tmp = node.rightChildTree;
+        node.rightChildTree = node.leftChildTree;
+        node.leftChildTree = tmp;
+        inverseTreee(node.leftChildTree);
+        inverseTreee(node.rightChildTree);
+        return node;
+    }
+
 
     public static void main(String[] args) {
 
@@ -91,6 +104,9 @@ public class BinaryTree<Data> {
         binaryTree.postOrderTree(binaryTreeByArray);
         System.out.println();
         binaryTree.levelOrderTree(binaryTreeByArray);
+        System.out.println();
+        TreeNode<Integer> integerTreeNode = binaryTree.inverseTreee(binaryTreeByArray);
+        binaryTree.preOrderTree(integerTreeNode);
 
 
     }
