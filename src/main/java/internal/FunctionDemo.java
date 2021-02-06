@@ -65,11 +65,25 @@ public class FunctionDemo {
         System.out.println(run);
 
 
+
     }
 }
 
+
+//使用函数式接口来使用的时候
+@FunctionalInterface
 interface LambdaTestFuction<T,E>{
 
     int run(T t);
+
+
+
+}
+
+@FunctionalInterface
+interface LambdaTestFuction2<T,E>{
+
+    int run(T t,E e);
+
 
 }
