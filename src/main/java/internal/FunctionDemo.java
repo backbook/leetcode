@@ -81,7 +81,9 @@ public class FunctionDemo {
 
         happyTime(1000,i-> System.out.println(i));
 
-        //利用以上例子，即可以表明java的lambda函数实际上是一个对象，只是进行封装
+
+
+        //利用以上例子，即可以表明java的lambda函数实际上是一个对象，只是进行封装,本质上就是匿名对象，不过底层实现做了优化
         List<String> filter = filter(Arrays.asList("北京", "天津", "海南"), new Predicate<String>() {
             @Override
             public boolean test(String s) {
