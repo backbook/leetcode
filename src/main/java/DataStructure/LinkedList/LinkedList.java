@@ -1,5 +1,7 @@
 package DataStructure.LinkedList;
 
+import org.w3c.dom.Node;
+
 /**
  * 链表操作
  *
@@ -96,6 +98,15 @@ public class LinkedList<Data> {
         System.out.println("null");
     }
 
+    public void printFor(){
+
+        for( Node p = head; p != null; p = p.next){
+            System.out.print(p.data+"->");
+        }
+        System.out.print("null");
+
+    }
+
 
     public static void main(String[] args) {
         LinkedList<Integer> linkedList = new LinkedList();
@@ -103,15 +114,10 @@ public class LinkedList<Data> {
         linkedList.addLast(3131);
         linkedList.addLast(3131311);
         linkedList.addLast(4111);
-        linkedList.deleteLast();
-        linkedList.deleteLast();
-        linkedList.deleteLast();
-        linkedList.deleteLast();
-        linkedList.deleteLast();
 //        linkedList.deleteLast();
 
 //        linkedList.deleteLast();
-        linkedList.print();
+        linkedList.printFor();
     }
 
 
