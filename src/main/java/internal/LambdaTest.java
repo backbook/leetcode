@@ -1,4 +1,4 @@
-package com.sujy;
+package internal;
 
 import org.junit.Test;
 
