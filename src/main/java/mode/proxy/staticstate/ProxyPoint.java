@@ -1,5 +1,8 @@
 package mode.proxy.staticstate;
 
+import mode.proxy.dynamic.jdk_proxy.SellTickets;
+import mode.proxy.dynamic.jdk_proxy.TrainStation;
+
 /**
  * 代售点
  */

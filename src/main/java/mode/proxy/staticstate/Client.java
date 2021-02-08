@@ -1,5 +1,7 @@
 package mode.proxy.staticstate;
 
+import mode.proxy.dynamic.jdk_proxy.SellTickets;
+
 public class Client {
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package mode.proxy.staticstate;
+package mode.proxy.dynamic.jdk_proxy;
 
 /**
  *
